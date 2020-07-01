@@ -70,6 +70,26 @@
     var outputContainer = document.getElementById("output");
     var outputMessage = document.getElementById("outputMessage");
     var outputData = document.getElementById("outputData");
+    
+    function getj(url){
+	//var uc = 'http://cors.api.ccell.ng/lavvy/jason/raw/master/commits.json';
+fetch(url)
+  .then(response => response.json())
+  .then(pload => process(pload));
+}
+
+function process(payload){
+var amount = payload[0].user.amount;
+
+if (amount > 1){
+var good = new Audio();
+good.src = "db/cow.wav";
+good.play();
+}else{
+var bad = new Audio();
+bad.src = "db/horse.wav";
+bad.play();
+}}
 
     function drawLine(begin, end, color) {
       canvas.beginPath();
@@ -110,6 +130,8 @@
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
+          
+          getj('db/user1.json');
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
