@@ -1,0 +1,27 @@
+<html>
+
+<button onclick="javascript:getj('user1.json')" type="button"> start machine</button>
+
+<script>
+
+function getj(url){
+	//var uc = 'http://cors.api.ccell.ng/lavvy/jason/raw/master/commits.json';
+fetch(url)
+  .then(response => response.json())
+  .then(pload => process(pload));
+}
+
+function process(payload){
+var amount = payload[0].user.amount;
+
+if (amount > 1){
+var good = new Audio();
+good.src = "cow.wav";
+good.play();
+}else{
+var bad = new Audio();
+bad.src = "horse.wav";
+bad.play();
+}}
+</script>
+</html>
